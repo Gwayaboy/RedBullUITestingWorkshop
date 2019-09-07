@@ -3,3 +3,8 @@
 ################################################################################
 
 /.vs/RedBullUITestingWorkshop/v16/.suo
+/.vs
+/Lab#2 - Building a DSL/.vs
+/Lab#2 - Building a DSL/eShopWebFunctionalTests/.vs/eShopWebFunctionalTests/v16
+/Lab#2 - Building a DSL/eShopWebFunctionalTests/bin/Debug/netcoreapp2.2
+/Lab#2 - Building a DSL/eShopWebFunctionalTests/obj
