@@ -16,6 +16,7 @@ namespace eShopWebFunctionalTests.Configuration
             _browserHostFactory = browserHostFactory;
         }
 
+
         [TestInitialize]
         public virtual void RunBeforeEachTests()
         {

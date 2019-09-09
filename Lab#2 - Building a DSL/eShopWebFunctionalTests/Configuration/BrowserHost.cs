@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace eShopWebFunctionalTests
+namespace eShopWebFunctionalTests.Configuration
 {
     public class BrowserHost : IDisposable
     {
@@ -14,7 +14,14 @@ namespace eShopWebFunctionalTests
         private BrowserHost(IWebDriver webDriver)
         {
             _webdriver = webDriver;
+            AppDomain.CurrentDomain.DomainUnload += CurrentDomainDomainUnload;
             _webdriver.Manage().Window.Maximize();
+        }
+
+        private void CurrentDomainDomainUnload(object sender, EventArgs e)
+        {
+            AppDomain.CurrentDomain.DomainUnload -= CurrentDomainDomainUnload;
+            Dispose();
         }
 
         public TPage NavigateToInitial<TPage>(string url)

@@ -40,12 +40,12 @@ namespace eShopWebFunctionalTests
 
             _browser.FindElement(By.CssSelector("#logoutForm > section.esh-identity-section > div")).Click();
             _browser.FindElement(By.CssSelector("#logoutForm > section.esh-identity-drop > a:nth-child(1)")).Click();
+
+            //this test will fail sometimes because the list of orders is not yet available.
             _browser.FindElement(By.CssSelector(".esh-orders-link")).Click();
 
 
-            //THis test fails because & is escaped in the page source.
-            // We could look for the item's description in the page using the css selector : ".esh-orders-detail-item--middle"
-            Assert.IsTrue(_browser.PageSource.Contains(".NET Black & White Mug"));
+            Assert.AreEqual(".NET Black & White Mug", _browser.FindElement(By.CssSelector(".esh-orders-detail-item--middle")).Text);
 
         }
 

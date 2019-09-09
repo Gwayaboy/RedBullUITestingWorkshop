@@ -11,7 +11,16 @@ namespace eShopWebFunctionalTests
 
         public string Title => WebDriver.Title;
 
-        public string Url  =>  WebDriver.Url;
+        public string Url => WebDriver.Url;
+
+        protected TPage NavigateTo<TPage>(By byLocator, Action<IWebElement> performAction = null)
+            where TPage : Page, new()
+        { 
+            var action = performAction ?? (e => e.Click());
+            action(WebDriver.FindElement(byLocator));
+
+            return new TPage { WebDriver = WebDriver };
+        } 
 
         internal static TPage NavigateToInitial<TPage>(IWebDriver webDriver, string startUpUrl)
              where TPage : Page, new()
