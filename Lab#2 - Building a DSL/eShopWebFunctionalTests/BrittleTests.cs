@@ -23,7 +23,7 @@ namespace eShopWebFunctionalTests
         }
 
         [TestMethod]
-        public void Registered_User_Can_buy_a_cup_of_T()
+        public void LoggedIn_User_Can_buy_a_cup_of_T()
         {
             _browser.Navigate().GoToUrl("http://localhost:5106");
             var type = new SelectElement(_browser.FindElement(By.Id("CatalogModel_TypesFilterApplied")));
@@ -44,9 +44,7 @@ namespace eShopWebFunctionalTests
             //this test will fail sometimes because the list of orders is not yet available.
             _browser.FindElement(By.CssSelector(".esh-orders-link")).Click();
 
-
             Assert.AreEqual(".NET Black & White Mug", _browser.FindElement(By.CssSelector(".esh-orders-detail-item--middle")).Text);
-
         }
 
         [TestCleanup]
