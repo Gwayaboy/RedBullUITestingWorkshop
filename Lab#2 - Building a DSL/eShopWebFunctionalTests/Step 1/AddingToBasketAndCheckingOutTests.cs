@@ -16,11 +16,12 @@ namespace eShopWebFunctionalTests.Step_1
             var homePage = Browser.NavigateToInitial<HomePage>("http://localhost:5106");
 
             //Act
-            var resultingPage = homePage.AddToBasketByProductId(2);
+            var actualPage = homePage.AddToBasketByProductId(2);
 
             //Assert
-            Assert.IsInstanceOfType(resultingPage, typeof(BasketPage));
-            Assert.AreEqual(resultingPage.Title, "Basket - Microsoft.eShopOnWeb");
+            Assert.IsInstanceOfType(actualPage, typeof(BasketPage));
+            Assert.IsTrue(actualPage.Url.EndsWith("/Basket"));
+            Assert.AreEqual(actualPage.Title, "Basket - Microsoft.eShopOnWeb");
         }
 
     }
