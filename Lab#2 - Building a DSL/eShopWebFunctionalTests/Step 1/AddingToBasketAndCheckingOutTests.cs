@@ -15,7 +15,6 @@ namespace eShopWebFunctionalTests.Step_1
         {
             //Arrange
             var homePage = Browser.NavigateToInitial<HomePage>("http://localhost:5106");
-            var expectedDotNetBlackAndWhiteMug = new ProductViewModel { Description = ".NET Black & White Mug" };
 
             //Act
             var actualPage = homePage.AddToBasketByProductId(2);
@@ -24,10 +23,7 @@ namespace eShopWebFunctionalTests.Step_1
             Assert.IsInstanceOfType(actualPage, typeof(BasketPage));
             Assert.IsTrue(actualPage.Url.EndsWith("/Basket"));
             Assert.AreEqual(actualPage.Title, "Basket - Microsoft.eShopOnWeb");
-            Assert.AreEqual(actualPage.Items.Count(), 1);
-            Assert.AreEqual(actualPage.Items[0].Id, 2);
-            Assert.AreEqual(actualPage.Items[0].Description, ".NET Black & White Mug");
-
+            Assert.AreEqual(actualPage.NumberOfItems , 1);
         }
 
     }
