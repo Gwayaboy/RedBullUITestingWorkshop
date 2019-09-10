@@ -1,9 +1,10 @@
 ﻿using eShopWebFunctionalTests.Configuration;
 using eShopWebFunctionalTests.Step_1.Pages;
+using eShopWebFunctionalTests.Step_2.Assertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 
-namespace eShopWebFunctionalTests.Step_1
+namespace eShopWebFunctionalTests.Step_2
 {
     [TestClass]
     public class AddingToBasketAndCheckingOutTests : FunctionalUITest
@@ -21,13 +22,11 @@ namespace eShopWebFunctionalTests.Step_1
             var actualPage = homePage.AddToBasketByProductId(2);
 
             //Assert
-            Assert.IsInstanceOfType(actualPage, typeof(BasketPage));
-            Assert.IsTrue(actualPage.Url.EndsWith("/Basket"));
-            Assert.AreEqual(actualPage.Title, "Basket - Microsoft.eShopOnWeb");
-            Assert.AreEqual(actualPage.Items.Count(), 1);
-            Assert.AreEqual(actualPage.Items[0].Id, 2);
-            Assert.AreEqual(actualPage.Items[0].Description, ".NET Black & White Mug");
-
+            actualPage
+                .Should()
+                .Be<BasketPage>(withExpectedTitle: "Basket - Microsoft.eShopOnWeb")
+                               .And
+                               .OnlyHave(expectedDotNetBlackAndWhiteMug);
         }
 
     }
