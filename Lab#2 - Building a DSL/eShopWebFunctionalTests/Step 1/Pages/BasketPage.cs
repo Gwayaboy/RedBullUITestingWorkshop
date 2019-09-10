@@ -2,6 +2,6 @@
 {
     public class BasketPage : Page
     {
-
+        public ProductViewModel[] Items => new ProductViewModel[0];
     }
 }
