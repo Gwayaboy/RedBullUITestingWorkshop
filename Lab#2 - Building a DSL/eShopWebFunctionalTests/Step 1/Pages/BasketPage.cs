@@ -7,18 +7,12 @@ namespace eShopWebFunctionalTests.Step_1.Pages
 {
     public class BasketPage : Page
     {
-        public int NumberOfItems
-        {
-            get
-            {
-                var count = WebDriver.FindElements(By.CssSelector("article.esh-basket-items.row")).Count();
-                return count == 0 ? 0 : count - 2;
-            }
-        }
+        private const string rowItemSelector = 
+            "div.esh-catalog-items.row > article.esh-basket-items.row";
 
-
-
+        public int NumberOfItems =>
+            WebDriver.FindElements(By.CssSelector(rowItemSelector)).Count();
+ 
         public ProductViewModel[] Items => new ProductViewModel[0];
-
     }
 }
