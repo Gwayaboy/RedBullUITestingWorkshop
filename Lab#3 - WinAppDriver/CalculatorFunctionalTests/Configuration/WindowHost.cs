@@ -68,10 +68,6 @@ namespace CalculatorFunctionalTests.Configuration
                     throw new ApplicationException("Calculator is not in in standard mode");
             }
 
-            // Locate the calculatorResult element
-            var calculatorResult = driver.FindElementByAccessibilityId("CalculatorResults");
-            if (calculatorResult == null) throw new NullReferenceException("cannot Locate the calculatorResult element");
-
             return new WindowHost(driver);
         }
 
