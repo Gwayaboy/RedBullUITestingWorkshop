@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\WindowHost.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="FunctionalTests.cs" />
     <Compile Include="CalculatorFunctionalTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

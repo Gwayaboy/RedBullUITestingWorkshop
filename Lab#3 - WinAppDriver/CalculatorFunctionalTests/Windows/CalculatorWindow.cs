@@ -1,4 +1,5 @@
-﻿using CalculatorFunctionalTests.ViewModel;
+﻿using CalculatorFunctionalTests.Extensions;
+using CalculatorFunctionalTests.ViewModel;
 using System;
 
 namespace CalculatorFunctionalTests.Windows
@@ -9,10 +10,11 @@ namespace CalculatorFunctionalTests.Windows
 
         public CalculatorWindow Clear()
         {
-            throw new NotImplementedException();
+            Driver.FindElementByName("Clear").Click();
+            return this;
         }
 
-        public CalculatorWindow SelectNumber(int v)
+        public CalculatorWindow SelectNumber(int operand)
         {
             throw new NotImplementedException();
         }
@@ -22,7 +24,7 @@ namespace CalculatorFunctionalTests.Windows
             throw new NotImplementedException();
         }
 
-        internal void PerformOperation()
+        public CalculatorWindow PerformOperation()
         {
             throw new NotImplementedException();
         }
