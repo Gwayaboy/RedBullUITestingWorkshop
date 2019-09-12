@@ -71,6 +71,7 @@
     <Compile Include="FunctionalTests.cs" />
     <Compile Include="CalculatorFunctionalTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Operand.cs" />
     <Compile Include="ViewModel\Operator.cs" />
     <Compile Include="Windows\CalculatorWindow.cs" />
     <Compile Include="Windows\Window.cs" />

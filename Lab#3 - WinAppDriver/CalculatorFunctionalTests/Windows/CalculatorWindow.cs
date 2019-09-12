@@ -14,7 +14,7 @@ namespace CalculatorFunctionalTests.Windows
             return this;
         }
 
-        public CalculatorWindow SelectNumber(int operand)
+        public CalculatorWindow SelectNumber(Operand operand)
         {
             throw new NotImplementedException();
         }
